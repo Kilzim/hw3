@@ -4,12 +4,12 @@
 
 
 <!-- for loop for entries for place -->
-<h2>Entries</h2>
+<h2>Notes</h2>
 <ul>
 <% entries = Entry.where({"place_id" => @place["id"]})%>
   <% for entry in @entries %>
     <li>
-      <%= entry["title"] %> - <%= entry["description"] %>
+      <%= entry["title"] %> - <%= entry["description"] %> - <%= entry["posted_on"] %>
       
       </a>
     </li>
