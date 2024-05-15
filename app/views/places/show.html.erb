@@ -6,10 +6,10 @@
 <!-- for loop for entries for place -->
 <h2>Notes</h2>
 <ul>
-<% entries = Entry.where({"place_id" => @place["id"]})%>
-  <% for entry in @entries %>
+<% entries = Entry.where({"place_id" => @place["id"]}).order("posted_on ASC")%>
+  <% for entry in entries %>
     <li>
-      <%= entry["title"] %> - <%= entry["description"] %> - <%= entry["posted_on"] %>
+      <%= entry.posted_on %> - <b> <%= entry["title"] %> </b> - <%= entry["description"] %>
       
       </a>
     </li>
@@ -19,10 +19,14 @@
 </ul>
 
 <p>
+<button>
 <a href="/entries/new?place_id=<%= @place["id"] %> ">New Entry</a>
+</button>
 </p>
 
 <p>
+<button>
   <a href="/places">Back to all Places</a>
+  </button>
 </p>
 
