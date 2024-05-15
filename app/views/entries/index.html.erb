@@ -1,17 +1,14 @@
 <h1> Entries </h1>
 
-<div class="row">
+<ul>
   <% for entries in @entry %>
-    <div class="col-3">
-      <h4><%= entry["title"] %></h4>
-      <p><%= entry["description"] %></p>
-    </div>
+    <li>
+      <%= entries["title"] %>
+      <%= entries["description"] %>
+      </a>
+    </li>
   <% end %>
+</ul>
 
-  <from action="/entries" method="entry">
-<%# add from fields %>
-<button>Submit</button>
-</form>
 
-</div>
 

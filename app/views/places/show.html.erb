@@ -3,15 +3,26 @@
 <h1> <%= @place["name"] %> </h1>
 
 
+<!-- for loop for entries for place -->
+<h2>Entries</h2>
 <ul>
-
+<% entries = Entry.where({"place_id" => @place["id"]})%>
+  <% for entry in @entries %>
+    <li>
+      <%= entry["title"] %> - <%= entry["description"] %>
+      
+      </a>
+    </li>
+  <% end %>
+</ul>
 
 </ul>
 
 <p>
-  <a href="/entries/new/">New Note</a>
+<a href="https://3000-kilzim-hw3-q36jjuyc0mz.ws-us110.gitpod.io/entries/new?place_id=<%= @place["id"] %> ">New Entry</a>
 </p>
 
 <p>
-  <a href="/places">Back to All Places</a>
+  <a href="/places">Back to all Places</a>
 </p>
+
