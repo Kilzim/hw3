@@ -9,9 +9,7 @@
 <% entries = Entry.where({"place_id" => @place["id"]}).order("posted_on ASC")%>
   <% for entry in entries %>
     <li>
-      <%= entry.posted_on %> - <b> <%= entry["title"] %> </b> - <%= entry["description"] %>
-      
-      </a>
+    <%= entry.posted_on %> - <b> <%= entry["title"] %> </b> - <%= entry["description"] %>  
     </li>
   <% end %>
 </ul>
