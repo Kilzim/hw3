@@ -2,7 +2,6 @@ class PlacesController < ApplicationController
 
   def index
     @place = Place.all
-    # render :template => "places/index"
   end
 
   def show
