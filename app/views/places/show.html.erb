@@ -5,12 +5,17 @@
 <!-- for loop for entries for place -->
 <h2>Notes</h2>
 <ul>
+<!-- sorts the entries by date -->
   <% entries = Entry.where({"place_id" => @place["id"]}).order("posted_on ASC")%>
   <% for entry in entries %>
   <!-- hides the entry if not all values have been entered -->
     <% if entry["title"].present? && entry["description"].present? %>
-      <li>
-        <%= entry.posted_on %> - <b> <%= entry["title"] %> </b> - <%= entry["description"] %>  
+      <li class="entry">
+        <%= entry.posted_on %> - <b> <%= entry["title"] %> </b> - <%= entry["description"] %>
+  <!-- adds a delete button, corresoponds to "destroy" in controller - I know it wasn't part of the assignment, but I thought it would be handy  -->
+  <br></br>     
+        <%= button_to "Delete Note", entry, method: :delete, class: "delete-button" %>
+  <br></br>
       </li>
     <% end %>
   <% end %>

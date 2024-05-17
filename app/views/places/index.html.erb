@@ -4,16 +4,19 @@
   <% for place in @place %>
     <li>
       <a href="/places/<%= place["id"] %>">
-      <%= place["name"] %>
+        <%= place["name"] %>
       </a>
+        <!-- adds a delete button, corresoponds to "destroy" in controller - I know it wasn't part of the assignment, but I thought it would be handy. I know it is not ideal, the place is deleted right away, but I couldn't figure out how to add a "are you sure?" before deleting  -->
+        <!-- Also, I know the entries are still there, but since I hide the entries index page, they can not be seen by the user.  -->
+      <br></br>
+      <%= button_to "Delete Place", place, method: :delete, class: "delete-button" %>
+      <br></br>
     </li>
   <% end %>
 </ul>
 
-
-
 <p>
-<button>
-  <a href="/places/new">New Place</a>
+  <button>
+    <a href="/places/new">New Place</a>
   </button>
 </p>

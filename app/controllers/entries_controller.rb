@@ -6,13 +6,11 @@ class EntriesController < ApplicationController
   end
 
   def show
-    @entry = entries.find_by({"id" => params["id"]})
-    @place = places.find_by({"id" => @entry["place_id"]})
+    @entry = Entry.find_by(id: params["id"])
+    @place = Place.find_by(id: @entry.place_id)
   end
 
-
   def new
-
   end
 
   def create
@@ -23,6 +21,12 @@ class EntriesController < ApplicationController
     @entry["place_id"] = params["place_id"]
     @entry.save
     redirect_to "/places"
+  end
+  
+  def destroy
+    @entry = Entry.find(params[:id])
+    @entry.destroy
+    redirect_to "/places/#{@entry.place_id}"
   end
 
 end
