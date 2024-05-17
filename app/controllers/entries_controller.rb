@@ -20,7 +20,7 @@ class EntriesController < ApplicationController
     @entry["posted_on"] = params["posted_on"]
     @entry["place_id"] = params["place_id"]
     @entry.save
-    redirect_to "/places"
+    redirect_to "/places/#{@entry.place_id}"
   end
   
   def destroy
